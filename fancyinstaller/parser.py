@@ -27,11 +27,11 @@ def get_python_origin(version, architecture, origin):
 
 kwargparser = kwargparse.KeywordArgumentParser()
 kwargparser.add_argument('name', type=str)
-kwargparser.add_argument('version', default=semantic_version.Version('1.0.0'), type=VersionType)
+kwargparser.add_argument('version', default='1.0.0')
 kwargparser.add_argument('packages', type=IterableType, default=[])
 kwargparser.add_argument('modules', type=IterableType, required=False)
 kwargparser.add_argument('include_updater', 'include-updater', type=bool, default=True)
 kwargparser.add_argument('update_dependencies', 'update-dependencies', type=IterableType, default=[])
 kwargparser.add_argument('python_version', 'python-version', required=False)
 kwargparser.add_argument('python_architecture', 'python-architecture', default='x86', type=ArchitectureType)
-kwargparser.add_argument('python_origin', 'python-origin', required=False)
+kwargparser.add_argument('python_origin', 'python-origin', required=False, type=str)
