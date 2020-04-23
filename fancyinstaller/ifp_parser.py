@@ -118,13 +118,13 @@ class RegistrySlot:
         self.value_data = value_data
         self.remove_when_uninstalling = remove_when_uninstalling
     def as_string_block(self):
-        return '\n'.join(
+        return '\n'.join((
             self.root_key,
             self.sub_key,
             self.value_name,
             self.value_data,
             int(self.remove_when_uninstalling),
-        )
+        ))
 
 class VariableSlot:
     line_count = 5
@@ -135,13 +135,13 @@ class VariableSlot:
         self.value_name = value_name
         self.default_value = default_value
     def as_string_block(self):
-        return '\n'.join(
+        return '\n'.join((
             self.variable_name,
             self.root_key,
             self.sub_key,
             self.value_name,
             self.default_value,
-        )
+        ))
 
 class ShortcutSlot:
     line_count = 6
@@ -153,14 +153,14 @@ class ShortcutSlot:
         self.icon_file = icon_file
         self.icon_index = icon_index
     def as_string_block(self):
-        return '\n'.join(
+        return '\n'.join((
             self.destination,
             self.shortcut_name,
             self.target_file,
             self.command_line_arguments,
             self.icon_file,
             self.icon_index,
-        )
+        ))
 
 class CommandSlot:
     line_count = 4
@@ -174,12 +174,12 @@ class CommandSlot:
         self.parameters = parameters
         self.options = options
     def as_string_block(self):
-        return '\n'.join(
+        return '\n'.join((
             self.type,
             self.command,
             self.parameters,
             self.options,
-        )
+        ))
 
 if __name__ == '__main__':
     # print(ifp.registry)
