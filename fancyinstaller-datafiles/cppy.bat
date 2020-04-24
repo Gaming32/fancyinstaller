@@ -1,0 +1,1 @@
+@robocopy /E "%~dp$PATH:2" "%1\python"

@@ -5,10 +5,11 @@ from .parser import kwargparser, get_python_origin
 from .ifp_parser import write_ifp, CommandSlot
 
 
-data_files_root = os.path.join(__file__, '../..', 'fancyinstaller-datafiles')
+data_files_root = os.path.normpath(os.path.join(__file__, '../..', 'fancyinstaller-datafiles'))
 batch_start_template = '''@echo off
 set PYTHON_ORIGIN=%s
 set PACKAGES=%s'''
+cppy_name = os.path.join(data_files_root, 'cppy.bat')
 
 build_data_root = 'build/fancyinstaller-online'
 contents_zip = os.path.join(build_data_root, 'contents.zip')
@@ -43,6 +44,8 @@ def generate_installer(**kwargs):
         fp.write(batch_script)
     print('copying', batch_script_name, '->', contents_zip)
     zf.write(batch_script_name, 'install.cmd')
+    print('copying', cppy_name, '->', contents_zip)
+    zf.write(cppy_name, 'cppy.cmd')
 
     print('closing', contents_zip)
     zf.close()
